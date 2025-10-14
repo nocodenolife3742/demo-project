@@ -18,7 +18,7 @@ jobs:
 
       - name: Create new branch
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git checkout -b auto/test-branch
           touch src/testfile.txt
