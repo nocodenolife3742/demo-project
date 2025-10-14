@@ -9,11 +9,16 @@ permissions:
   contents: write
 
 jobs:
-  create-pr:
+  patch-files:
     runs-on: ubuntu-latest
     steps:
+      - name: Install uv
+        run: wget -qO- https://astral.sh/uv/install.sh | sh
+      - name: Clone afixl repo
+        run: git clone https://github.com/nocodenolife3742/AFixL.git /temp/AFixL
       - uses: actions/checkout@v5
-      - run: |
+      - name: Make changes
+        run: |
           docker --version > generated.txt
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
