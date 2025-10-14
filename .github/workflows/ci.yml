@@ -20,7 +20,8 @@ jobs:
         run: git clone https://github.com/nocodenolife3742/demo-project.git ./demo-project
       - name: Run afixl on demo-project
         run: |
-          uv run ./afixl/main.py --path ./demo-project --timeout 1
+          cd afixl
+          uv run main.py --path ../demo-project --timeout 1
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
