@@ -1,0 +1,26 @@
+name: Auto PR from Dev to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create new branch
+        run: |
+          git checkout -b auto/test-branch
+          touch src/testfile.txt
+          git add src/testfile.txt
+          git commit -m "Add testfile.txt to src directory"
+          git push origin auto/test-branch
+
