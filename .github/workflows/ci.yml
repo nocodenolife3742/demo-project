@@ -16,7 +16,11 @@ jobs:
         run: wget -qO- https://astral.sh/uv/install.sh | sh
       - name: Clone afixl repo
         run: git clone https://github.com/nocodenolife3742/AFixL.git ./afixl
-      - uses: actions/checkout@v5
+      - name: Clone this repo
+        run: git clone https://github.com/nocodenolife3742/demo-project.git ./demo-project
+      - name: Run afixl on demo-project
+        run: |
+          uv run ./afixl/main.py --path ./demo-project --timeout 1
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
