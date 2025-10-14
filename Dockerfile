@@ -1,4 +1,4 @@
-FROM afixl-env:latest
+FROM nocodenolife3742/afixl-env:latest
 
 COPY ./src ./build.sh /src/
 COPY ./eval /eval
