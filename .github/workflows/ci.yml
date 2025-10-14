@@ -15,7 +15,7 @@ jobs:
       - name: Install uv
         run: wget -qO- https://astral.sh/uv/install.sh | sh
       - name: Clone afixl repo
-        run: git clone https://github.com/nocodenolife3742/AFixL.git /temp/AFixL
+        run: git clone https://github.com/nocodenolife3742/AFixL.git ./afixl
       - uses: actions/checkout@v5
       # - name: Make changes
       #   run: |
