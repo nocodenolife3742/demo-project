@@ -9,20 +9,12 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Git
-        run: |
+      - uses: actions/checkout@v5
+      - run: |
+          date > generated.txt
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Create new branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git checkout -b auto/test-branch
-          touch src/testfile.txt
-          git add src/testfile.txt
-          git commit -m "Add testfile.txt to src directory"
-          git push origin auto/test-branch
+          git add .
+          git commit -m "generated"
+          git push
 
