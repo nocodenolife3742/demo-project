@@ -13,7 +13,7 @@ void asan_null_deref()
 void asan_heap_overflow()
 {
     char *heap_buf = malloc(10);
-    heap_buf[10] = 'a'; // overflow
+    heap_buf[9] = 'a'; // overflow
     free(heap_buf);
 }
 
