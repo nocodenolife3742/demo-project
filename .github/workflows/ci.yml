@@ -34,12 +34,6 @@ jobs:
       - name: PR changes
         run: |
           cd afixl
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           uv run --env-file .env scripts/git-patch.py --patches-dir patches --repo-dir ../demo-project/
-      # - name: Make changes
-      #   run: |
-      #     docker --version > generated.txt
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]@users.noreply.github.com"
-      #     git add .
-      #     git commit -m "generated"
-      #     git push
