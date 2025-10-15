@@ -1,4 +1,4 @@
-name: Auto PR from Dev to Main
+name: Auto fix security issues
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
       - name: Run afixl on demo-project
         run: |
           cd afixl
-          uv run --env-file .env main.py --path ../demo-project --timeout 1
+          uv run --env-file .env main.py --path ../demo-project --timeout 2
       - name: PR changes
         run: |
           cd afixl
