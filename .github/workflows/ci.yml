@@ -26,7 +26,7 @@ jobs:
       - name: Run afixl on demo-project
         run: |
           cd afixl
-          uv run --env-file .env main.py --path ../demo-project --timeout 1
+          uv run --env-file .env main.py --path ../demo-project --timeout 3
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
