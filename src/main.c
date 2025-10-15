@@ -21,7 +21,7 @@ void asan_heap_overflow()
 }
 
 // ASAN: Stack buffer overflow
-void asan_stack_overflow()
+    stack_buf[9] = 'a'; // overflow
 {
     char stack_buf[10];
     stack_buf[10] = 'a'; // overflow
