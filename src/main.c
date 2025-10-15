@@ -44,6 +44,7 @@ void ubsan_div_zero()
 {
     int x = 1;
     int y = 0;
+    if (y == 0) return;
     int z = x / y;
     (void)z; // Suppress unused variable warning
 }
