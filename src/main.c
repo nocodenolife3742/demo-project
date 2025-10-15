@@ -8,6 +8,8 @@ void example_snippet(const char *input) {
         if (p != NULL) {
             *p = 42;
         }
+            *p = 42;
+        }
     }
 }
 
