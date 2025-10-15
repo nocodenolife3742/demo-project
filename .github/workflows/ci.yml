@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      GH_TOKEN : ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Install uv
         run: wget -qO- https://astral.sh/uv/install.sh | sh
@@ -25,10 +26,14 @@ jobs:
       - name: Save env variables
         run: |
           echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> ./afixl/.env
+          echo "GH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> ./afixl/.env
       - name: Run afixl on demo-project
         run: |
           cd afixl
-          uv run --env-file .env main.py --path ../demo-project --timeout 2
+          uv run --env-file .env main.py --path ../demo-project --timeout 1
+      - name: PR changes
+        run: |
+          uv run --env-file .env scripts/git-patch.py --patches-dir patches --repo-dir ../demo-project/
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
