@@ -11,6 +11,8 @@ permissions:
 jobs:
   patch-files:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
     steps:
       - name: Install uv
         run: wget -qO- https://astral.sh/uv/install.sh | sh
@@ -18,10 +20,13 @@ jobs:
         run: git clone https://github.com/nocodenolife3742/AFixL.git ./afixl
       - name: Clone this repo
         run: git clone https://github.com/nocodenolife3742/demo-project.git ./demo-project
+      - name: Save env variables
+        run: |
+          echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> ./afixl/.env
       - name: Run afixl on demo-project
         run: |
           cd afixl
-          uv run main.py --path ../demo-project --timeout 1
+          uv run --env-file .env main.py --path ../demo-project --timeout 1
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
@@ -30,4 +35,3 @@ jobs:
       #     git add .
       #     git commit -m "generated"
       #     git push
-
