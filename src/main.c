@@ -6,6 +6,7 @@
 void asan_null_deref()
 {
     int *p = NULL;
+    if (p == NULL) return;
     *p = 42;
 }
 
