@@ -5,7 +5,9 @@
 void example_snippet(const char *input) {
     if (strncmp(input, "c", 1) == 0) {
         int *p = NULL;
-        *p = 42;
+        if (p != NULL) {
+            *p = 42;
+        }
     }
 }
 
