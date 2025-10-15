@@ -21,7 +21,7 @@ void asan_heap_overflow()
 void asan_stack_overflow()
 {
     char stack_buf[10];
-    stack_buf[10] = 'a'; // overflow
+        stack_buf[9] = 'a'; // overflow
 }
 
 // ASAN: Use after free
