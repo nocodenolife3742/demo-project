@@ -20,13 +20,15 @@ jobs:
         run: git clone https://github.com/nocodenolife3742/AFixL.git ./afixl
       - name: Clone this repo
         run: git clone https://github.com/nocodenolife3742/demo-project.git ./demo-project
+      - name: prepull docker images
+        run: docker pull nocodenolife3742/afixl-env:latest
       - name: Save env variables
         run: |
           echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> ./afixl/.env
       - name: Run afixl on demo-project
         run: |
           cd afixl
-          uv run --env-file .env main.py --path ../demo-project --timeout 3
+          uv run --env-file .env main.py --path ../demo-project --timeout 2
       # - name: Make changes
       #   run: |
       #     docker --version > generated.txt
