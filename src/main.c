@@ -6,7 +6,10 @@
 void asan_null_deref()
 {
     int *p = NULL;
-    *p = 42;
+    if (p != NULL) {
+        *p = 42;
+    }
+
 }
 
 // ASAN: Heap buffer overflow
