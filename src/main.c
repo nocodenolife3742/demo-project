@@ -58,6 +58,7 @@ void ubsan_shift_oob()
 
 void example_snippet(const char *input)
 {
+    // test crash
     if (strncmp(input, "a", 1) == 0)
     {
         asan_null_deref();
