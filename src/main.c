@@ -5,7 +5,9 @@
 void null_deref()
 {
     int *p = NULL;
-    *p = 42;
+    if (p != NULL) {
+        *p = 42;
+    }
 }
 
 void heap_overflow()
