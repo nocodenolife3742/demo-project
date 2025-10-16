@@ -17,8 +17,8 @@ void heap_overflow()
 
 void stack_overflow()
 {
-    char stack_buf[10];
-    stack_buf[10] = 'a';
+    char stack_buf[10] = {0};
+    //stack_buf[10] = 'a';
 }
 
 void div_zero()
