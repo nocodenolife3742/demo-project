@@ -25,7 +25,7 @@ void div_zero()
 {
     int x = 1;
     int y = 0;
-    int z = x / y;
+    int z = (y == 0) ? 0 : x / y;
 }
 
 void example_snippet(const char *input)
