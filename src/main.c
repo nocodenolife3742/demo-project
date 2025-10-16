@@ -11,7 +11,7 @@ void null_deref()
 void heap_overflow()
 {
     char *heap_buf = malloc(10);
-    heap_buf[10] = 'a';
+    heap_buf[9] = 'a';
     free(heap_buf);
 }
 
